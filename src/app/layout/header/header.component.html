@@ -1,14 +1,17 @@
 <header class="bg-stone-950 sticky top-4 flex items-center justify-between px-10">
-    <div class="flex items-center left-header-div gap-5">
+    <div class="flex items-center left-header-div gap-5 text-white">
         <img width="100" src="/assets/netlogo.png" alt="logo" />
         <ul class="flex gap-5">
             <li 
                 *ngFor="let item of navItemsLst; index as i"
-                class="text-white cursor-pointer hover:text-gray-400"    
+                class="cursor-pointer hover:text-gray-400"    
             > {{ item }}</li>
         </ul>
     </div>
-    <div class="right=header-div">\
-        <span class="text-white">Welcome Chris</span>
+    <div class="right=header-div text-white flex items-center">
+        <span class="text-white mr-4">Welcome Chris</span>
+        <img width="42" src="/assets/profileSil.png" alt="profile image" class="mr-4" />
+        <div class="ml-4 mr-4"> | </div>
+        <a href="#" class="hover:text-gray-400">Sign Out</a>
     </div>
 </header>
