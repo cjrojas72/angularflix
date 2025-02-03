@@ -1,6 +1,6 @@
 # Angular Movie App
 
-This is a movie discovery web application built using **Angular 19**, **Tailwind CSS**, **Swiper JS**, and powered by the **TMDb API** (The Movie Database API). The app allows users to browse movies, TV shows, and explore popular, top-rated, and upcoming movies with a modern and responsive UI.
+This is a movie discovery web application built using **Angular 19**, **Tailwind CSS**, **Swiper JS**, and powered by the **TMDb API** (The Movie Database API). The app allows users to browse movies, TV shows, and explore popular, top-rated, and upcoming movies with a modern UI.
 
 ## Features
 
