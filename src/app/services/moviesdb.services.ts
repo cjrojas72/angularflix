@@ -19,16 +19,78 @@ export class moviesdbAPIService {
         });
     }
 
-    getMovies(endpoint: string, paramsObj: any) {
+    getMovies(paramsObj: any) {
         let params = new HttpParams();
         for (const key in paramsObj) {
             if (paramsObj.hasOwnProperty(key)) {
             params = params.set(key, paramsObj[key]);
-        }
+            }
+        } 
+    return this.http.get<any>(`${this.apiUrl}discover/movie`, { headers: this.headers, params });
     }
 
-    
-    return this.http.get(`${this.apiUrl}${endpoint}`, { headers: this.headers, params })
+    getTvShows(paramsObj: any) {
+        let params = new HttpParams();
+        for (const key in paramsObj) {
+            if (paramsObj.hasOwnProperty(key)) {
+            params = params.set(key, paramsObj[key]);
+            }
+        }    
+    return this.http.get<any>(`${this.apiUrl}discover/tv`, { headers: this.headers, params });
     }
+
+    getNowPlaying(paramsObj: any) {
+        let params = new HttpParams();
+        for (const key in paramsObj) {
+            if (paramsObj.hasOwnProperty(key)) {
+            params = params.set(key, paramsObj[key]);
+            }
+        }
+    return this.http.get<any>(`${this.apiUrl}movie/now_playing`, { headers: this.headers, params });
+    }
+
+    getPopularMovies(paramsObj: any) {
+        let params = new HttpParams();
+        for (const key in paramsObj) {
+            if (paramsObj.hasOwnProperty(key)) {
+            params = params.set(key, paramsObj[key]);
+            }
+        }
+    return this.http.get<any>(`${this.apiUrl}movie/popular`, { headers: this.headers, params });
+    }
+
+    getTopRated(paramsObj: any) {
+        let params = new HttpParams();
+        for (const key in paramsObj) {
+            if (paramsObj.hasOwnProperty(key)) {
+            params = params.set(key, paramsObj[key]);
+            }
+        }
+    return this.http.get<any>(`${this.apiUrl}movie/top_rated`, { headers: this.headers, params });
+    }
+
+    getUpcomingMovies(paramsObj: any) {
+        let params = new HttpParams();
+        for (const key in paramsObj) {
+            if (paramsObj.hasOwnProperty(key)) {
+            params = params.set(key, paramsObj[key]);
+            }
+        }
+    return this.http.get<any>(`${this.apiUrl}movie/upcoming`, { headers: this.headers, params });
+    }
+
+      
+    
+    getBannerImage(id: number) {
+        return this.http.get(`${this.apiUrl}/movie/${id}/images`, { headers: this.headers })
+    }
+    
+    getBannerVideo(id: number) {
+        return this.http.get(`${this.apiUrl}movie/${id}/videos`, { headers: this.headers });
+    }
+    
+    getBannerDetail(id: number) {
+        return this.http.get(`${this.apiUrl}/movie/${id}`, { headers: this.headers });
+    } 
 
 }

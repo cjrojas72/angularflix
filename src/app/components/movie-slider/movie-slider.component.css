@@ -16,10 +16,12 @@
 }
 
 .swiper-slide img{
-  height: 250px;
+  height: 280px;
 }
 
 .swiper-pagination {
   position: relative;
   bottom: 0 !important;
 }
+
+

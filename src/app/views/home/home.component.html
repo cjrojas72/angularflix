@@ -3,7 +3,30 @@
         <app-banner />
     </section>
     <section class="sliders-section">
-        <app-movie-slider [section_title]=" 'Popular on Netflix' " />
+        <app-movie-slider 
+            [section_title]=" 'Popular on Netflix' " 
+            [videoContents]=" 'popularMovies' "
+            [options]=""
+
+        />
+
+        <app-movie-slider 
+            [section_title]=" 'Top TV Shows' "
+            [videoContents]=" 'tvShows' "
+            [options]=" '' "
+        />
+
+        <app-movie-slider 
+            [section_title]=" 'Now Playing' "
+            [videoContents]=" 'nowPlayingMovies' "
+            [options]=" '' "
+        />
+
+        <app-movie-slider 
+            [section_title]=" 'Coming Soon' "
+            [videoContents]=" 'upcomingMovies' "
+            [options]=" '' "
+        />
     </section>
 </div>
 

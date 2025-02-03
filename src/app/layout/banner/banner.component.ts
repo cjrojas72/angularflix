@@ -22,7 +22,7 @@ export class BannerComponent implements OnInit {
       include_video: 'false'
     }
 
-    this.movieService.getMovies('discover/movie', options)
+    this.movieService.getMovies(options)
       .subscribe(res=>{
         console.log(res);
       })
