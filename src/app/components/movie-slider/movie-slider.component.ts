@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, Input } from '@angular/core';
 
 
 import 'swiper/css';
@@ -14,5 +14,5 @@ import 'swiper/css/pagination';
 })
 export class MovieSliderComponent {
 
-  
+  @Input() section_title: string = '';
 }
