@@ -2,8 +2,8 @@
     <h2 class="font-semibold text-2xl my-3 ml-3 text-white">{{ section_title }}</h2>
 
     <swiper-container slidesPerView="5" loop="true" navigation="true" style="--swiper-theme-color: #ffff;">
-            <swiper-slide class="swiper-slide" *ngFor="let video of content">
-                <img [src]=" 'https://image.tmdb.org/t/p/w500' + video.poster_path" alt=" {{ video.title }}"/>
+            <swiper-slide class="swiper-slide" *ngFor="let video of content" [attr.data-movie-id] = "video.id" (click)="goToMovie(video.id)">
+                <img [src]=" 'https://image.tmdb.org/t/p/w500' + video.poster_path" alt=" {{ video.title }}" />
             </swiper-slide>
     </swiper-container>
 </div>

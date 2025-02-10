@@ -7,6 +7,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { moviesdbAPIService } from '../../services/moviesdb.services';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-slider',
@@ -24,12 +25,16 @@ export class MovieSliderComponent implements OnInit {
   content: vidContent[] = [];
 
 
-  constructor(private mdbAPIService: moviesdbAPIService) {}
+  constructor(private mdbAPIService: moviesdbAPIService, private router: Router) {}
 
   ngOnInit(): void {
     if(this.mdbAPIService){
       this.fetchVidContent();
     }
+  }
+
+  goToMovie(id: number){
+    this.router.navigate(['/movie', id]);
   }
 
   

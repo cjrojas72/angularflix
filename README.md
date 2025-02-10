@@ -15,3 +15,5 @@ This is a movie discovery web application built using **Angular 19**, **Tailwind
 - **Swiper JS**: A powerful and customizable carousel/slider library for showcasing movies.
 - **TMDb API**: The Movie Database API is used to fetch movie-related data like movies, TV shows, details, and images.
 
+
+
