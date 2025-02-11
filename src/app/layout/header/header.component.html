@@ -5,7 +5,7 @@
             <li 
                 *ngFor="let item of navItemsLst; index as i"
                 class="cursor-pointer hover:text-gray-400"    
-            > {{ item }}</li>
+            ><a routerLink="/{{ item | lowercase }}" routerLinkActive="active">{{ item }}</a></li>
         </ul>
     </div>
     <div class="right=header-div text-white flex items-center">
