@@ -5,12 +5,16 @@
     <h1 class="text-6xl font-bold">{{ movie_title }} </h1>
     <p class="inline-block py-6 text-xl w-1/4 flex-wrap"> {{ movie_details }}</p>
   <div>
-    <button class="bg-white text-black py-4 px-12 text-xl rounded-lg hover:bg-gray-500 hover:cursor-pointer transition-[1s]">
-      &#11208; Play
-    </button>
-    <button class="mx-2 bg-gray-500 text-white px-12 py-4 text-xl hover:bg-white hover:text-black hover:cursor-pointer rounded-lg">
-      More Info
-    </button>
+    <a [href]="movie_video_goTo">
+      <button class="bg-white text-black py-4 px-12 text-xl rounded-lg hover:bg-gray-500 hover:cursor-pointer transition-[1s]">
+        &#11208; Play
+      </button>
+    </a>
+    <a [href]="movie_video_goTo">
+      <button class="mx-2 bg-gray-500 text-white px-12 py-4 text-xl hover:bg-white hover:text-black hover:cursor-pointer rounded-lg">
+        More Info
+      </button>
+    </a>
   </div>
   </div>
 </div>

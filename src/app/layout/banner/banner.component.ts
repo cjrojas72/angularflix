@@ -19,7 +19,8 @@ export class BannerComponent implements OnInit {
 
   movie_title: string = '';
   movie_details: string = '';
-  movie_video_src: SafeResourceUrl = ''
+  movie_video_src: SafeResourceUrl = '';
+  movie_video_goTo: SafeResourceUrl = '';
 
 
   getDefaultMovie(){
@@ -61,6 +62,7 @@ export class BannerComponent implements OnInit {
                 }
 
                 this.movie_video_src = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${movie_key}?autoplay=1&mute=1&loop=1&controls=0`);
+                this.movie_video_goTo = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${movie_key}?autoplay=1`);
                 //console.log(this.movie_video_src);
                
               })
