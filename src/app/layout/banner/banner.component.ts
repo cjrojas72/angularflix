@@ -50,11 +50,19 @@ export class BannerComponent implements OnInit {
             this.movieService.getBannerVideo(id)
               .subscribe(res => {
                 console.log(res);
-                let movie_key = res.results[0].key;
+                //let movie_key: string = res.results[0].key ?? 'hvL1339luv0';
+
+
+                let movie_key: string = '';
+                if (res.results[0] && res.results[0].key) {
+                  movie_key = res.results[0].key;
+                } else {
+                  movie_key = 'hvL1339luv0'; 
+                }
 
                 this.movie_video_src = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${movie_key}?autoplay=1&mute=1&loop=1&controls=0`);
-
-                console.log(this.movie_video_src);
+                //console.log(this.movie_video_src);
+               
               })
   }
 
