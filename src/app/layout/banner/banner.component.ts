@@ -1,5 +1,7 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, Input } from '@angular/core';
 import { moviesdbAPIService } from '../../services/moviesdb.services';
+import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-banner',
@@ -9,12 +11,19 @@ import { moviesdbAPIService } from '../../services/moviesdb.services';
 })
 export class BannerComponent implements OnInit {
 
-  movieService = inject(moviesdbAPIService)
+  
+  movieService = inject(moviesdbAPIService);
+  route = inject(ActivatedRoute);
+  sanitizer = inject(DomSanitizer)
+  movieID: string = '';
+
+  movie_title: string = '';
+  movie_details: string = '';
+  movie_video_src: SafeResourceUrl = ''
 
 
-  ngOnInit(): void {
-    
-    const options = {
+  getDefaultMovie(){
+      const options = {
       language: 'en-US',
       page: '1',
       sort_by: 'popularity.desc',
@@ -24,7 +33,43 @@ export class BannerComponent implements OnInit {
 
     this.movieService.getMovies(options)
       .subscribe(res=>{
-        console.log(res);
-      })
+            //console.log(res);
+            this.movieID = res.results[0].id; 
+           // console.log(this.movieID);
+            this.getMovieDetails(parseInt(this.movieID));
+      });
+  }
+
+  getMovieDetails(id:number){
+    this.movieService.getBannerDetail(id)
+              .subscribe(res =>{
+                console.log(res);
+                this.movie_title = res.title;
+                this.movie_details = res.overview;
+              });
+            this.movieService.getBannerVideo(id)
+              .subscribe(res => {
+                console.log(res);
+                let movie_key = res.results[0].key;
+
+                this.movie_video_src = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${movie_key}?autoplay=1&mute=1&loop=1&controls=0`);
+
+                console.log(this.movie_video_src);
+              })
+  }
+
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe( params => {
+      this.movieID = params.get('id')!;
+    });
+
+    if(this.movieID === '' || this.movieID === null){
+      this.getDefaultMovie();
+    }
+    else{
+      this.getMovieDetails(parseInt(this.movieID));
+    }
   }
 }
+  

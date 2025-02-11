@@ -1,9 +1,9 @@
-<iframe class="w-full h-full absolute" src="https://www.youtube.com/embed/TcMBFSGVi1c?autoplay=1&mute=1&loop=5&contols=0" frameborder="0"></iframe>
+<iframe class="w-full h-full absolute" [src]="movie_video_src" frameborder="0"></iframe>
 
 <div class="h-screen bg-white">
   <div class="pt-[15%] px-24 absolute h-full text-white bg-gradient-to-r from-black w-full">
-    <h1 class="text-6xl font-bold">Marvel Studios' Avengers: Endgame</h1>
-    <p class="inline-block py-6 text-xl w-1/4 flex-wrap">After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.</p>
+    <h1 class="text-6xl font-bold">{{ movie_title }} </h1>
+    <p class="inline-block py-6 text-xl w-1/4 flex-wrap"> {{ movie_details }}</p>
   <div>
     <button class="bg-white text-black py-4 px-12 text-xl rounded-lg hover:bg-gray-500 hover:cursor-pointer transition-[1s]">
       &#11208; Play

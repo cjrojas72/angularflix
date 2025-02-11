@@ -46,7 +46,7 @@ export class MovieSliderComponent implements OnInit {
         this.mdbAPIService.getPopularMovies(paramsObj).subscribe(data => {
           this.content = data.results;
 
-          console.log(this.content);
+          //console.log(this.content);
         });
         break;
 

@@ -17,6 +17,10 @@
 
 .swiper-slide img{
   height: 280px;
+
+  &:hover{
+    cursor: pointer;
+  }
 }
 
 .swiper-pagination {

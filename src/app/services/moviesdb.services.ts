@@ -82,15 +82,15 @@ export class moviesdbAPIService {
       
     
     getBannerImage(id: number) {
-        return this.http.get(`${this.apiUrl}/movie/${id}/images`, { headers: this.headers })
+        return this.http.get<any>(`${this.apiUrl}/movie/${id}/images`, { headers: this.headers })
     }
     
     getBannerVideo(id: number) {
-        return this.http.get(`${this.apiUrl}movie/${id}/videos`, { headers: this.headers });
+        return this.http.get<any>(`${this.apiUrl}movie/${id}/videos`, { headers: this.headers });
     }
     
     getBannerDetail(id: number) {
-        return this.http.get(`${this.apiUrl}/movie/${id}`, { headers: this.headers });
+        return this.http.get<any>(`${this.apiUrl}/movie/${id}`, { headers: this.headers });
     } 
 
 }
